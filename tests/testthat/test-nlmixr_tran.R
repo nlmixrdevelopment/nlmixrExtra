@@ -1,4 +1,11 @@
-test_that("nlmixr_tran", {
+test_that("nlmixr_trans expected errors", {
+  expect_error(
+    nlmixr_trans(model_ref1, "linear_model_ode_onecmt_iv"),
+    regexp="all ... arguments must be function names"
+  )
+})
+
+test_that("nlmixr_trans", {
   # Single row replacement
   model_ref1 <- function() {
     ini({
